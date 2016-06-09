@@ -1,4 +1,4 @@
 module.exports = {
-    msg: 'aaa'
+  msg: 'jkaaaaahh:ia',
 };
 

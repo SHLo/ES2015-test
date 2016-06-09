@@ -4,7 +4,9 @@
   "description": "use babel & webpack",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.prod.js",
+    "dev": "webpack-dev-server --config webpack.config.dev.js"
   },
   "repository": {
     "type": "git",
@@ -22,9 +24,19 @@
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
+    "css-loader": "^0.23.1",
     "eslint": "^2.11.1",
+    "eslint-config-airbnb": "^9.0.1",
     "eslint-loader": "^1.3.0",
+    "eslint-plugin-babel": "^3.2.0",
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-jsx-a11y": "^1.3.0",
+    "eslint-plugin-react": "^5.1.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.19.0",
+    "raw-loader": "^0.5.1",
     "strip-loader": "^0.1.2",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   }
