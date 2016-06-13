@@ -1,7 +1,7 @@
 var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var webpack = require('webpack')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     devtool: 'cheap-eval-source-map',
@@ -24,7 +24,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './index.html'
         }),
-        new ExtractTextPlugin('styles.css')
+        new ExtractTextPlugin('styles-min.css')
     ],
     module: {
         preLoaders: [
