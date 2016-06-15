@@ -35,6 +35,10 @@ module.exports = {
                 test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
                 loader: 'file'
             },
+            { 
+                test: /\.png$/, 
+                loader: "url-loader?mimetype=image/png" 
+            },
             {
                 test: /\.css$/,
                 exclude: /node-modules/,
