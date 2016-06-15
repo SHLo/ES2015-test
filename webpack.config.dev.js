@@ -1,54 +1,14 @@
-var path = require('path');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var base = require('./webpack.config.base');
 var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
-    devtool: 'cheap-eval-source-map',
-    context: path.resolve('src'),
-    entry: [
-        'webpack-dev-server/client?http://localhost:8080',
-        'webpack/hot/dev-server',
-        './js/app.js'
-    ],
-    output: {
-        filename: 'bundle.js',
-        path: path.join(__dirname, 'dist')
-    },
-    devServer: {
-        contentBase: './dist',
-        hot: true
-    },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new HtmlWebpackPlugin({
-            template: './index.html'
-        }),
-        new ExtractTextPlugin('styles-min.css')
-    ],
-    module: {
-        preLoaders: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'eslint-loader'
-            }
-        ],
-        loaders: [
-            {
-                test: /\.css$/,
-                exclude: /node-modules/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-            },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
-            },
-            {
-                test: /\.html$/,
-                loader: 'raw-loader'
-            }
-        ]
-    }
-}
+var dev = base;
+dev.devtool = 'cheap-eval-source-map';
+dev.entry = [
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/dev-server',
+]
+    .concat(dev.entry);
+dev.plugins.push(new webpack.HotModuleReplacementPlugin());
+dev.devServerPort = 3000;
+
+module.exports = dev;
