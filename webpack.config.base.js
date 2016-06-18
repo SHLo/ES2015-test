@@ -7,7 +7,7 @@ var BundleTracker = require('webpack-bundle-tracker');
 module.exports = {
     context: path.resolve('src'),
     entry: [
-        './js/app.js'
+        './js/main.js'
     ],
     output: {
         filename: '[name].js',

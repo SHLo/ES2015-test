@@ -11,10 +11,13 @@ dev.entry = [
 ]
     .concat(dev.entry);
 
+// Tell django to use this URL to load packages and not use STATIC_URL + bundle_name
+dev.output.publicPath = 'http://localhost:' + dev.devServerPort + '/dist/';
+
 dev.plugins = dev.plugins.concat([
     new webpack.HotModuleReplacementPlugin(),
     new OpenBrowserPlugin({
-        url: 'http://localhost:' + dev.devServerPort,
+        url: 'http://localhost:' + dev.devServerPort + '/dist/',
         ignoreErrors: true,
         browser: 'Google Chrome'
     }),
