@@ -1,6 +1,8 @@
 var base = require('./webpack.config.base');
 var webpack = require('webpack');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+var validate = require('webpack-validator');
+var Joi = validate.Joi;
 
 var dev = base;
 dev.devServerPort = 3000;
@@ -23,4 +25,6 @@ dev.plugins = dev.plugins.concat([
     }),
 ]);
 
-module.exports = dev;
+module.exports = validate(dev, {
+    schemaExtension: Joi.object({devServerPort: Joi.any()})
+});

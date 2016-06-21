@@ -3,6 +3,7 @@
 var base = require('./webpack.config.base');
 var WebpackStrip = require('strip-loader');
 var webpack = require('webpack');
+var validate = require('webpack-validator');
 
 var prod = base;
 
@@ -22,4 +23,4 @@ prod.plugins = [
 ]
     .concat(prod.plugins);
 
-module.exports = prod;
+module.exports = validate(prod);
