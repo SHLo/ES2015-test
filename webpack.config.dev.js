@@ -20,7 +20,6 @@ dev.plugins = dev.plugins.concat([
     new webpack.HotModuleReplacementPlugin(),
     new OpenBrowserPlugin({
         url: 'http://localhost:' + dev.devServerPort + '/dist/',
-        ignoreErrors: true,
         browser: 'Google Chrome'
     }),
 ]);

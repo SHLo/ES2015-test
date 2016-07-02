@@ -1,6 +1,6 @@
 import '../index.html';
-import styles from '../css/styles.css';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import styles from '../css/styles.css';
+// import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -9,6 +9,6 @@ document.querySelector('h1').textContent = `${msg.msg} 1`;
 document.querySelector('h1').classList.add('jumbotron');
 
 ReactDOM.render(
-  <h1 className={styles.test}>Hello!</h1>,
+  <a className="btn btn-default">Hello!</a>,
   document.getElementById('example')
 );

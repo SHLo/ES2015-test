@@ -10,6 +10,7 @@ module.exports = {
     context: path.resolve('src'),
     entry: [
         'babel-polyfill',
+        'bootstrap-loader/extractStyles',
         './js/main.js'
     ],
     output: {
@@ -40,9 +41,9 @@ module.exports = {
                 test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
                 loader: 'file'
             },
-            { 
-                test: /\.png$/, 
-                loader: "url-loader?mimetype=image/png" 
+            {
+                test: /\.png$/,
+                loader: "url-loader?mimetype=image/png"
             },
             {
                 test: /\.css$/,
@@ -57,6 +58,10 @@ module.exports = {
             {
                 test: /\.html$/,
                 loader: 'raw-loader'
+            },
+            {
+                test: /bootstrap-sass\/assets\/javascripts\//,
+                loader: 'imports?jQuery=jquery'
             }
         ]
     },
