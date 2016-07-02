@@ -3,6 +3,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var BundleTracker = require('webpack-bundle-tracker');
+var precss = require('precss');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
     context: path.resolve('src'),
@@ -44,7 +46,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 exclude: /node-modules/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader')
             },
             {
                 test: /\.js$/,
@@ -56,5 +58,8 @@ module.exports = {
                 loader: 'raw-loader'
             }
         ]
+    },
+    postcss: function () {
+      return [precss, autoprefixer];
     }
 }

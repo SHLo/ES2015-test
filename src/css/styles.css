@@ -1,6 +1,12 @@
+.test {
+  color: red;
+  background-size: cover;
+  display: flex;
+}
+
 h1 {
   color: rgb(114, 191, 190);
-  text-align: center;
+  text-align: left;
 }
 
 #color {
