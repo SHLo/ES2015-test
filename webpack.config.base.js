@@ -9,6 +9,7 @@ var autoprefixer = require('autoprefixer');
 module.exports = {
     context: path.resolve('src'),
     entry: [
+        'babel-polyfill',
         './js/main.js'
     ],
     output: {
