@@ -8,11 +8,16 @@ var autoprefixer = require('autoprefixer');
 
 module.exports = {
     context: path.resolve('src'),
-    entry: [
-        'babel-polyfill',
-        'bootstrap-loader/extractStyles',
-        './js/main.js'
-    ],
+    entry: {
+        main: './js/main.js',
+        vendor: [
+            'babel-polyfill',
+            'bootstrap-loader/extractstyles',
+            'react',
+            'react-dom',
+            'react-css-modules',
+        ]
+    },
     output: {
         filename: '[name].js',
         path: path.join(__dirname, 'dist')
@@ -22,7 +27,10 @@ module.exports = {
             template: './index.html'
         }),
         new ExtractTextPlugin('[name].css'),
-        new BundleTracker({filename: './webpack-stats.json'})
+        new BundleTracker({filename: './webpack-stats.json'}),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+        })
     ],
     module: {
         preLoaders: [
