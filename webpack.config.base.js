@@ -16,6 +16,7 @@ module.exports = {
             'react',
             'react-dom',
             'react-css-modules',
+            'font-awesome/css/font-awesome.css',
         ]
     },
     output: {
@@ -55,8 +56,13 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                exclude: /node-modules/,
+                exclude: /node_modules/,
                 loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader')
+            },
+            {
+                test: /\.css$/,
+                include: /node_modules/,
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
             },
             {
                 test: /\.js$/,
